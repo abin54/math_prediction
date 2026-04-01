@@ -1,0 +1,103 @@
+HISTORICAL TRICK TRACE LOG
+==========================
+
+Week: 17/11/25 
+to 
+22/11/25
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:STEP-3 WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:MIRROR|STEP-3
+--------------------------------------------------
+Week: 24/11/25 
+to 
+29/11/25
+Logic Trace: MON->TUE:TENS-LOCK TUE->WED:STEP-7|UNIT-LOCK WED->THU:STEP-3 THU->FRI:STEP-3|UNIT-LOCK|STEP-3-SYM FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 01/12/25 
+to 
+06/12/25
+Logic Trace: MON->TUE:MIRROR TUE->WED:UNIT-LOCK WED->THU:MIRROR|UNIT-LOCK THU->FRI:STEP-1 FRI->SAT:MIRROR
+--------------------------------------------------
+Week: 08/12/25 
+to 
+13/12/25
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:MIRROR WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 15/12/25 
+to 
+20/12/25
+Logic Trace: MON->TUE:STEP-3 TUE->WED:STEP-3 WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 22/12/25 
+to 
+27/12/25
+Logic Trace: MON->TUE:MIRROR|TENS-LOCK|FAMILY TUE->WED:MIRROR|STEP-7 WED->THU:STEP-7 THU->FRI:MIRROR|STEP-7 FRI->SAT:TENS-LOCK
+--------------------------------------------------
+Week: 29/11/2025 
+to 
+03/01/2026
+Logic Trace: MON->TUE:MIRROR TUE->WED:STEP-7 WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:STEP-7
+--------------------------------------------------
+Week: 05/01/2026 
+to 
+10/01/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:STEP-1 WED->THU:MIRROR|STEP-3|STEP-3-SYM THU->FRI:UNIT-LOCK|TENS-LOCK|FAMILY FRI->SAT:STEP-7|UNIT-LOCK
+--------------------------------------------------
+Week: 12/01/2026 
+to 
+17/01/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:MIRROR WED->THU:STEP-3|UNIT-LOCK THU->FRI:STEP-3 FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 19/01/2026 
+to 
+24/01/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:UNKNOWN WED->THU:STEP-7 THU->FRI:TENS-LOCK FRI->SAT:MIRROR
+--------------------------------------------------
+Week: 26/01/2026 
+to 
+31/01/2026
+Logic Trace: TUE->WED:STEP-1 WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:MIRROR
+--------------------------------------------------
+Week: 02/02/2026 
+to 
+07/02/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:MIRROR|FAMILY WED->THU:UNKNOWN THU->FRI:MIRROR|STEP-7 FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 09/02/2026 
+to 
+14/02/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:UNKNOWN WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:STEP-3|STEP-3-SYM
+--------------------------------------------------
+Week: 16/02/2026 
+to 
+21/02/2026
+Logic Trace: MON->TUE:STEP-1 TUE->WED:UNKNOWN WED->THU:STEP-3 THU->FRI:UNKNOWN FRI->SAT:STEP-7|TENS-LOCK
+--------------------------------------------------
+Week: 23/02/2026 
+to 
+27/02/2026
+Logic Trace: MON->TUE:MIRROR|STEP-7 TUE->WED:UNKNOWN WED->THU:FAMILY THU->FRI:MIRROR|TENS-LOCK|FAMILY FRI->SAT:STEP-3
+--------------------------------------------------
+Week: 02/03/2026 
+to 
+07/03/2026
+Logic Trace: MON->TUE:UNKNOWN THU->FRI:MIRROR FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 09/03/2026 
+To 
+14/03/2026
+Logic Trace: MON->TUE:MIRROR TUE->WED:UNKNOWN WED->THU:MIRROR|STEP-3 THU->FRI:UNKNOWN FRI->SAT:STEP-3|STEP-3-SYM
+--------------------------------------------------
+Week: 16/03/2026 
+to 
+21/03/2026
+Logic Trace: MON->TUE:MIRROR|STEP-1 TUE->WED:UNKNOWN WED->THU:MIRROR THU->FRI:MIRROR FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 23/03/2026 
+to 
+28/03/2026
+Logic Trace: MON->TUE:UNKNOWN TUE->WED:MIRROR WED->THU:UNKNOWN THU->FRI:UNKNOWN FRI->SAT:UNKNOWN
+--------------------------------------------------
+Week: 30/03/2026 
+to 
+04/04/2026
+Logic Trace: MON->TUE:STEP-3|UNIT-LOCK|STEP-3-SYM
+--------------------------------------------------

@@ -10,6 +10,7 @@ import sys
 import io
 import warnings
 import os
+from typing import List
 from collections import Counter
 from sklearn.ensemble import RandomForestClassifier, HistGradientBoostingClassifier, VotingClassifier
 from sklearn.model_selection import TimeSeriesSplit, RandomizedSearchCV
@@ -77,8 +78,10 @@ def load_data_source_2():
     except Exception as e:
         return {d: [] for d in DAYS}
 
+MIRROR = {0:5, 1:6, 2:7, 3:8, 4:9, 5:0, 6:1, 7:2, 8:3, 9:4}
+
 def _extract_window_features(window: List[int]) -> List[float]:
-    """Extract 15+ features per position in window."""
+    """Extract 20+ features per position in window, including Cycle/Trick Logic."""
     features = []
     tens_list = [v // 10 for v in window]
     units_list = [v % 10 for v in window]
@@ -86,24 +89,40 @@ def _extract_window_features(window: List[int]) -> List[float]:
     for j, val in enumerate(window):
         tens = val // 10
         units = val % 10
-        delta = 0 if j == 0 else (val - window[j - 1])
-
-        # Original features (5)
+        prev = window[j - 1] if j > 0 else val
+        delta = val - prev
+        
+        # 1. Base Digit Features (5)
         features.extend([tens, units, delta, tens % 2, units % 2])
 
-        # New: digit sum and product (2)
-        features.append(tens + units)
-        features.append(tens * units)
+        # 2. Total Progression (Sum Logic) (1)
+        # 74 -> 04 (11 -> 4). Distance 3.
+        val_sum = (tens + units) % 10
+        prev_sum = (prev // 10 + prev % 10) % 10
+        sum_delta = (val_sum - prev_sum) % 10
+        features.append(sum_delta)
 
-        # New: digit difference absolute (1)
-        features.append(abs(tens - units))
+        # 3. Cycle Shift Logic (Distance 3 / 7) (2)
+        # 7 -> 0 jump is a step of 3 or 7.
+        features.append(delta % 3)
+        features.append(delta % 7)
 
-        # New: modular features (3)
+        # 4. Mirror/Cut Trick Logic (1)
+        # Checks if current result matches mirror of previous result
+        prev_mirror_t = MIRROR[prev // 10]
+        prev_mirror_u = MIRROR[prev % 10]
+        is_mirror = 1.0 if (tens == prev_mirror_t or tens == prev_mirror_u or units == prev_mirror_t or units == prev_mirror_u) else 0.0
+        features.append(is_mirror)
+        
+        # 5. Unit Lock Pattern (1)
+        # 74 -> 04 (Units 4 locked). 
+        is_locked = 1.0 if (j > 0 and units == window[j-1] % 10) else 0.0
+        features.append(is_locked)
+
+        # 6. Modular/Positional (4)
         features.append(val % 3)
         features.append(val % 5)
         features.append(val % 7)
-
-        # New: position in sequence (1)
         features.append(j / len(window))
 
     # Window-level aggregate features
@@ -150,7 +169,6 @@ def create_dataset(sequence, window_size):
     if len(X) == 0: return np.array([]), np.array([]), np.array([])
     return np.array(X, dtype=np.float32), np.array(yt), np.array(yu)
 
-from typing import List
 
 def tune_and_fit(X, y_target, name):
     """Attempt GPU training first, then fallback to CPU."""

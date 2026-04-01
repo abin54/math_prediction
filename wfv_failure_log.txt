@@ -1,0 +1,1617 @@
+FAILURE ANALYSIS LOG: 2016-2020
+================================
+
+Date: 04/01/16  to  09/01/16
+  MON: 73.0 -> TUE: 27.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 11/01/16  to  16/01/16
+  MON: 70.0 -> TUE: 2.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 18/01/16  to  23/01/16
+  MON: 98.0 -> TUE: 73.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 01/02/16  to  06/02/16
+  MON: 9.0 -> TUE: 73.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 08/02/16  to  13/02/16
+  MON: 13.0 -> TUE: 8.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 15/02/16  to  20/02/16
+  MON: 66.0 -> TUE: 46.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/02/16  to  27/02/16
+  MON: 67.0 -> TUE: 23.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 29/02/16  to  05/03/16
+  MON: 1.0 -> TUE: 30.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/03/16  to  12/03/16
+  MON: 2.0 -> TUE: 96.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 14/03/16  to  19/03/16
+  MON: 66.0 -> TUE: 54.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/03/16  to  26/03/16
+  MON: 49.0 -> TUE: 93.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 28/03/16  to  02/04/16
+  MON: 50.0 -> TUE: 88.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/04/16  to  09/04/16
+  MON: 34.0 -> TUE: 38.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 11/04/16  to  16/04/16
+  MON: 31.0 -> TUE: 85.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 18/04/16  to  23/04/16
+  MON: 47.0 -> TUE: 69.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 25/04/16  to  30/04/16
+  MON: 34.0 -> TUE: 88.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 02/05/16  to  07/05/16
+  MON: 51.0 -> TUE: 31.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/05/16  to  14/05/16
+  MON: 21.0 -> TUE: 12.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/05/16  to  21/05/16
+  MON: 21.0 -> TUE: 41.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/05/16  to  04/06/16
+  MON: 53.0 -> TUE: 28.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 06/06/16  to  11/06/16
+  MON: 91.0 -> TUE: 87.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/06/16  to  25/06/16
+  MON: 80.0 -> TUE: 17.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 27/06/16  to  02/07/16
+  MON: 47.0 -> TUE: 9.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 04/07/16  to  09/07/16
+  MON: 28.0 -> TUE: 53.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 11/07/16  to  16/07/16
+  MON: 2.0 -> TUE: 20.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/07/16  to  23/07/16
+  MON: 16.0 -> TUE: 71.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 25/07/16  to  30/07/16
+  MON: 49.0 -> TUE: 71.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 01/08/16  to  06/08/16
+  MON: 16.0 -> TUE: 1.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 08/08/16  to  13/08/16
+  MON: 40.0 -> TUE: 38.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/08/16  to  27/08/16
+  MON: 37.0 -> TUE: 0.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/08/16  to  03/09/16
+  MON: 33.0 -> TUE: 92.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 05/09/16  to  10/09/16
+  MON: 61.0 -> TUE: 31.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 12/09/16  to  17/09/16
+  MON: 65.0 -> TUE: 38.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 03/10/16  
+to 
+08/10/16
+  MON: 38.0 -> TUE: 95.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/10/16  
+to 
+15/10/16
+  MON: 78.0 -> TUE: 45.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 17/10/16 
+to 
+22/10/16
+  MON: 5.0 -> TUE: 62.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 24/10/16 
+to 
+29/10/16
+  MON: 9.0 -> TUE: 93.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/11/16 
+to 
+12/16/16
+  MON: 65.0 -> TUE: 62.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 14/11/16 
+to 
+19/11/16
+  MON: 97.0 -> TUE: 33.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/11/16 
+to 
+26/11/16
+  MON: 15.0 -> TUE: 95.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 28/11/16 
+to 
+03/12/16
+  MON: 94.0 -> TUE: 20.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 05/12/16 
+to 
+10/12/16
+  MON: 34.0 -> TUE: 14.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/12/16 
+to 
+17/12/16
+  MON: 81.0 -> TUE: 19.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 19/12/16 
+to 
+24/12/16
+  MON: 84.0 -> TUE: 87.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/12/16 
+to 
+31/12/16
+  MON: 81.0 -> TUE: 45.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/01/17 
+to 
+07/01/17
+  MON: 80.0 -> TUE: 86.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/01/17 
+to 
+14/01/17
+  MON: 84.0 -> TUE: 98.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 16/01/17 
+to 
+21/01/17
+  MON: 62.0 -> TUE: 14.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 23/01/17 
+to 
+28/01/17
+  MON: 59.0 -> TUE: 18.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/01/17 
+to 
+04/02/17
+  MON: 22.0 -> TUE: 8.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/02/17 
+to 
+18/02/17
+  MON: 10.0 -> TUE: 94.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/02/17 
+to 
+25/02/17
+  MON: 35.0 -> TUE: 58.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 27/02/17 
+to 
+04/03/17
+  MON: 82.0 -> TUE: 89.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 06/03/17 
+to 
+11/03/17
+  MON: 22.0 -> TUE: 46.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/03/17 
+to 
+25/03/17
+  MON: 30.0 -> TUE: 52.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 27/03/17 
+to 
+01/04/17
+  MON: 57.0 -> TUE: 12.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 03/04/17 
+to 
+08/04/17
+  MON: 16.0 -> TUE: 93.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/04/17 
+to 
+15/04/17
+  MON: 93.0 -> TUE: 82.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 17/04/17 
+to 
+22/04/17
+  MON: 99.0 -> TUE: 38.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 24/04/17 
+to 
+29/04/17
+  MON: 98.0 -> TUE: 59.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 01/05/17 
+to 
+06/05/17
+  MON: 5.0 -> TUE: 77.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 08/05/17  
+to 
+13/05/17
+  MON: 1.0 -> TUE: 79.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/05/17  
+to 
+20/05/17
+  MON: 28.0 -> TUE: 94.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/05/17  
+to 
+27/05/17
+  MON: 77.0 -> TUE: 42.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 29/05/17  
+to 
+03/06/17
+  MON: 52.0 -> TUE: 75.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 05/06/17  
+to 
+10/06/17
+  MON: 6.0 -> TUE: 84.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/06/17  
+to 
+17/06/17
+  MON: 86.0 -> TUE: 1.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 19/06/17  
+to 
+24/06/17
+  MON: 88.0 -> TUE: 89.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 03/07/17 
+to 
+08/07/17
+  MON: 78.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/07/17  
+to 
+15/07/17
+  MON: 4.0 -> TUE: 46.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 17/07/17 
+to 
+22/07/17
+  MON: 67.0 -> TUE: 4.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 31/07/17 
+to 
+05/08/17
+  MON: 62.0 -> TUE: 73.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 07/08/17 
+to 
+12/08/17
+  MON: 67.0 -> TUE: 91.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 21/08/17 
+to 
+26/08/17
+  MON: 80.0 -> TUE: 77.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/09/17  
+to 
+09/09/17
+  MON: 57.0 -> TUE: 63.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/09/17  
+to 
+16/09/17
+  MON: 40.0 -> TUE: 2.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/09/17 
+to 
+30/09/17
+  MON: 58.0 -> TUE: 61.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/10/17 
+to 
+07/10/17
+  MON: 27.0 -> TUE: 91.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/10/17 
+to 
+14/10/17
+  MON: 55.0 -> TUE: 74.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/10/17 
+to 
+04/11/17
+  MON: 53.0 -> TUE: 56.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/11/17 
+to 
+18/11/17
+  MON: 3.0 -> TUE: 39.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/11/17 
+TO 
+25/11/17
+  MON: 7.0 -> TUE: 99.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 27/11/17 
+to 
+02/12/17
+  MON: 41.0 -> TUE: 58.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/12/17 
+to 
+09/12/17
+  MON: 17.0 -> TUE: 33.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/12/17 
+to 
+16/12/17
+  MON: 40.0 -> TUE: 40.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/12/17 
+to 
+23/12/17
+  MON: 6.0 -> TUE: 11.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 25/12/17 
+to 
+30/12/17
+  MON: 68.0 -> TUE: 42.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 08/01/18 
+to 
+13/01/18
+  MON: 24.0 -> TUE: 2.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/01/18 
+to 
+20/01/18
+  MON: 62.0 -> TUE: 58.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/01/18 
+to 
+27/01/18
+  MON: 65.0 -> TUE: 84.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/01/18 
+to 
+03/02/18
+  MON: 18.0 -> TUE: 18.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 05/02/18 
+to 
+10/02/18
+  MON: 38.0 -> TUE: 70.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/02/18 
+to 
+17/02/18
+  MON: 29.0 -> TUE: 75.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 19/02/18 
+to 
+24/02/18
+  MON: 59.0 -> TUE: 11.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/02/18 
+to 
+03/03/18
+  MON: 25.0 -> TUE: 73.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 12/03/18 
+to 
+17/03/18
+  MON: 15.0 -> TUE: 26.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 19/03/18 
+TO 
+24/03/18
+  MON: 80.0 -> TUE: 43.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 26/03/18 
+TO 
+31/03/18
+  MON: 17.0 -> TUE: 4.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/04/18 
+to 
+07/04/18
+  MON: 70.0 -> TUE: 6.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/04/18 
+to 
+14/04/18
+  MON: 78.0 -> TUE: 50.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/04/18 
+to 
+21/04/18
+  MON: 50.0 -> TUE: 47.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/05/18 
+to 
+12/05/18
+  MON: 7.0 -> TUE: 82.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 14/05/18 
+to 
+09/05/18
+  MON: 0.0 -> TUE: 47.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/05/18 
+to 
+26/05/18
+  MON: 68.0 -> TUE: 9.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 28/05/18 
+to 
+02/06/18
+  MON: 65.0 -> TUE: 40.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 04/06/18 
+to 
+09/06/18
+  MON: 8.0 -> TUE: 41.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/06/18 
+to 
+16/06/18
+  MON: 22.0 -> TUE: 20.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/06/18 
+to 
+23/06/18
+  MON: 89.0 -> TUE: 98.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/06/18 
+to 
+30/06/18
+  MON: 83.0 -> TUE: 64.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/07/18 
+to 
+07/07/18
+  MON: 97.0 -> TUE: 89.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/07/18 
+to 
+14/07/18
+  MON: 56.0 -> TUE: 69.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/07/18 
+to 
+21/07/18
+  MON: 8.0 -> TUE: 26.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 23/07/18 
+to 
+28/07/18
+  MON: 62.0 -> TUE: 51.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 30/07/18 
+to 
+04/08/18
+  MON: 43.0 -> TUE: 47.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 06/08/18 
+to 
+11/08/18
+  MON: 23.0 -> TUE: 24.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/08/18 
+to 
+18/08/18
+  MON: 29.0 -> TUE: 73.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 20/08/18 
+to 
+25/08/18
+  MON: 88.0 -> TUE: 11.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 27/08/18 
+to 
+01/09/18
+  MON: 48.0 -> TUE: 19.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 10/09/18 
+to 
+15/09/18
+  MON: 82.0 -> TUE: 88.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 17/09/18 
+to 
+22/09/18
+  MON: 4.0 -> TUE: 51.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 24/09/18 
+to 
+29/09/18
+  MON: 77.0 -> TUE: 18.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 01/10/18 
+to 
+06/10/18
+  MON: 88.0 -> TUE: 75.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 08/10/18 
+to 
+13/10/18
+  MON: 57.0 -> TUE: 45.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/10/18 
+to 
+20/10/18
+  MON: 52.0 -> TUE: 99.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/10/18 
+to 
+27/10/18
+  MON: 63.0 -> TUE: 57.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/10/18 
+to 
+03/11/18
+  MON: 78.0 -> TUE: 74.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/11/18 
+to 
+17/11/18
+  MON: 43.0 -> TUE: 31.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 19/11/18 
+to 
+24/11/18
+  MON: 6.0 -> TUE: 99.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/11/18 
+to 
+01/12/18
+  MON: 9.0 -> TUE: 94.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 03/12/18 
+to 
+08/12/18
+  MON: 39.0 -> TUE: 19.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/12/18 
+to 
+15/12/18
+  MON: 62.0 -> TUE: 2.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 17/12/18 
+to 
+22/12/18
+  MON: 35.0 -> TUE: 60.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 24/12/18 
+to 
+29/12/18
+  MON: 62.0 -> TUE: 87.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: v31/12/18 
+to 
+05/01/19
+  MON: 66.0 -> TUE: 32.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/01/18 
+to 
+12/01/18
+  MON: 28.0 -> TUE: 34.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 14/01/18 
+to 
+19/01/19
+  MON: 94.0 -> TUE: 60.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/01/19 
+to 
+26/01/19
+  MON: 38.0 -> TUE: 9.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/02/19 
+to 
+09/02/19
+  MON: 65.0 -> TUE: 29.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/02/19 
+to 
+16/02/19
+  MON: 97.0 -> TUE: 41.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 18/02/19 
+to 
+23/02/19
+  MON: 87.0 -> TUE: 74.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/02/19 
+to 
+02/03/19
+  MON: 14.0 -> TUE: 41.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/03/19 
+to 
+09/03/19
+  MON: 94.0 -> TUE: 39.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 11/03/19 
+to 
+16/03/19
+  MON: 75.0 -> TUE: 93.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/03/19 
+to 
+23/03/19
+  MON: 35.0 -> TUE: 72.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/03/19 
+to 
+30/03/19
+  MON: 94.0 -> TUE: 11.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 01/04/19 
+to 
+06/04/19
+  MON: 19.0 -> TUE: 7.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/04/19 
+to 
+20/04/19
+  MON: 25.0 -> TUE: 83.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/04/18 
+to 
+27/04/18
+  MON: 90.0 -> TUE: 80.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/04/19 
+to 
+04/05/19
+  MON: 74.0 -> TUE: 84.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 06/05/19 
+to 
+11/05/19
+  MON: 48.0 -> TUE: 1.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/05/19 
+to 
+18/05/19
+  MON: 37.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/05/19 
+to 
+25/05/19
+  MON: 11.0 -> TUE: 96.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 27/05/19 
+to 
+01/06/19
+  MON: 38.0 -> TUE: 95.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 03/06/19 
+to 
+08/06/19
+  MON: 93.0 -> TUE: 80.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 10/06/19 
+to 
+15/06/19
+  MON: 7.0 -> TUE: 58.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 17/06/19 
+to 
+22/06/19
+  MON: 58.0 -> TUE: 33.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 24/06/19 
+to 
+29/06/19
+  MON: 57.0 -> TUE: 68.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 01/07/19 
+to 
+06/07/19
+  MON: 55.0 -> TUE: 68.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 08/07/19 
+to 
+13/07/19
+  MON: 91.0 -> TUE: 39.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/07/19 
+to 
+20/07/19
+  MON: 33.0 -> TUE: 57.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/07/19 
+to 
+27/07/19
+  MON: 61.0 -> TUE: 27.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 05/08/19 
+to 
+10/08/19
+  MON: 75.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/08/19 
+to 
+17/08/19
+  MON: 73.0 -> TUE: 63.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 19/08/19 
+to 
+24/08/19
+  MON: 36.0 -> TUE: 24.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/08/19 
+to 
+31/08/19
+  MON: 92.0 -> TUE: 87.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 02/09/19 
+to 
+07/09/19
+  MON: 49.0 -> TUE: 96.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 09/09/19 
+to 
+14/09/19
+  MON: 0.0 -> TUE: 76.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 23/09/19 
+to 
+28/09/19
+  MON: 51.0 -> TUE: 87.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/09/19 
+to 
+05/10/19
+  MON: 5.0 -> TUE: 87.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/10/19 
+to 
+12/10/19
+  MON: 21.0 -> TUE: 36.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 14/10/19 
+to 
+19/10/19
+  MON: 56.0 -> TUE: 88.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 27/10/19 
+to 
+26/10/19
+  MON: 3.0 -> TUE: 92.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/11/19 
+to 
+09/11/19
+  MON: 16.0 -> TUE: 95.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/11/19 
+to 
+16/11/19
+  MON: 95.0 -> TUE: 35.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/11/19 
+to 
+23/11/19
+  MON: 4.0 -> TUE: 17.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/11/19 
+to 
+30/11/19
+  MON: 43.0 -> TUE: 84.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 02/12/19 
+to 
+07/12/19
+  MON: 73.0 -> TUE: 66.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/12/19 
+to 
+14/12/19
+  MON: 48.0 -> TUE: 15.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/12/19 
+to 
+21/12/19
+  MON: 48.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 23/12/19 
+to 
+28/12/19
+  MON: 98.0 -> TUE: 42.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 30/12/19 
+to 
+04/01/20
+  MON: 22.0 -> TUE: 2.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 06/01/20 
+to 
+11/01/20
+  MON: 6.0 -> TUE: 90.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/01/20 
+to 
+18/01/20
+  MON: 76.0 -> TUE: 11.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 20/01/20 
+to 
+25/01/20
+  MON: 49.0 -> TUE: 54.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 03/02/20 
+to 
+08/02/20
+  MON: 56.0 -> TUE: 31.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 10/02/20 
+to 
+15/02/20
+  MON: 64.0 -> TUE: 59.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 17/02/20 
+to 
+22/02/20
+  MON: 85.0 -> TUE: 91.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 24/02/20 
+to 
+29/02/20
+  MON: 74.0 -> TUE: 91.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 02/03/20 
+to 
+07/03/20
+  MON: 71.0 -> TUE: 78.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/05/20 
+to 
+16/05/20
+  MON: 56.0 -> TUE: 9.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 18/05/20 
+to 
+23/05/20
+  MON: 31.0 -> TUE: 1.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 25/05/20 
+to 
+30/05/20
+  MON: 61.0 -> TUE: 63.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 01/06/20 
+to 
+06/06/20
+  MON: 65.0 -> TUE: 36.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/06/20 
+to 
+20/06/20
+  MON: 1.0 -> TUE: 57.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 22/06/20 
+to 
+27/06/20
+  MON: 64.0 -> TUE: 40.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/06/20 
+to 
+04/07/20
+  MON: 78.0 -> TUE: 31.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 06/07/20 
+to 
+11/07/20
+  MON: 77.0 -> TUE: 70.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/07/20 
+to 
+18/07/20
+  MON: 28.0 -> TUE: 5.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/07/20 
+to 
+25/07/20
+  MON: 71.0 -> TUE: 67.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 03/08/20 
+to 
+08/08/20
+  MON: 34.0 -> TUE: 58.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 10/08/20 
+to 
+15/08/20
+  MON: 81.0 -> TUE: 60.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 24/08/20 
+to 
+29/08/20
+  MON: 39.0 -> TUE: 43.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 07/09/20 
+to 
+12/09/20
+  MON: 29.0 -> TUE: 77.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 14/09/20 
+to 
+20/09/20
+  MON: 71.0 -> TUE: 71.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/09/20 
+to 
+26/09/20
+  MON: 78.0 -> TUE: 25.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 28/09/20 
+to 
+03/10/20
+  MON: 83.0 -> TUE: 57.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 05/10/20 
+to 
+10/10/20
+  MON: 5.0 -> TUE: 98.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/10/20 
+to 
+17/10/20
+  MON: 66.0 -> TUE: 44.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/10/20 
+to 
+31/10/20
+  MON: 63.0 -> TUE: 54.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/11/20 
+to 
+07/11/20
+  MON: 44.0 -> TUE: 96.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 23/11/20 
+to 
+28/11/20
+  MON: 88.0 -> TUE: 14.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/12/20 
+to 
+12/12/20
+  MON: 12.0 -> TUE: 1.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 14/12/20 
+to 
+19/12/20
+  MON: 77.0 -> TUE: 3.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/12/20 
+to 
+26/12/20
+  MON: 54.0 -> TUE: 77.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 28/12/20 
+to 
+02/01/21
+  MON: 19.0 -> TUE: 82.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/01/20 
+to 
+09/01/21
+  MON: 36.0 -> TUE: 18.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 11/01/21 
+to 
+16/01/21
+  MON: 29.0 -> TUE: 59.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/01/21 
+to 
+23/01/21
+  MON: 52.0 -> TUE: 30.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 01/02/21 
+to 
+06/02/21
+  MON: 31.0 -> TUE: 0.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/02/21 
+to 
+20/02/21
+  MON: 1.0 -> TUE: 55.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 22/02/21 
+to 
+27/02/21
+  MON: 40.0 -> TUE: 49.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 01/03/21 
+to 
+06/03/21
+  MON: 45.0 -> TUE: 70.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 08/03/21 
+to 
+13/03/21
+  MON: 22.0 -> TUE: 81.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/03/21 
+to 
+20/03/21
+  MON: 80.0 -> TUE: 16.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/03/21 
+to 
+27/03/21
+  MON: 71.0 -> TUE: 72.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 05/04/21 
+to 
+10/04/21
+  MON: 23.0 -> TUE: 31.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/04/21 
+to 
+17/04/21
+  MON: 99.0 -> TUE: 2.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 19/04/21 
+to 
+24/04/21
+  MON: 68.0 -> TUE: 26.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/04/21 
+to 
+01/05/21
+  MON: 8.0 -> TUE: 66.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 03/05/21 
+to 
+08/05/21
+  MON: 66.0 -> TUE: 28.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/05/21 
+to 
+15/05/21
+  MON: 38.0 -> TUE: 20.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 17/05/21 
+to 
+22/05/21
+  MON: 37.0 -> TUE: 80.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 24/05/21 
+to 
+29/05/21
+  MON: 38.0 -> TUE: 32.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 31/05/21 
+to 
+05/06/21
+  MON: 26.0 -> TUE: 44.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 07/06/21 
+to 
+12/06/21
+  MON: 83.0 -> TUE: 80.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 14/06/21 
+to 
+19/06/21
+  MON: 68.0 -> TUE: 50.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/06/21 
+to 
+26/06/21
+  MON: 79.0 -> TUE: 41.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 28/06/21 
+to 
+03/07/21
+  MON: 61.0 -> TUE: 69.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 05/07/21 
+to 
+10/07/21
+  MON: 7.0 -> TUE: 67.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 12/07/21 
+to 
+17/07/21
+  MON: 54.0 -> TUE: 56.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 19/07/21 
+to 
+24/07/21
+  MON: 2.0 -> TUE: 33.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 26/07/21 
+to 
+31/07/21
+  MON: 65.0 -> TUE: 86.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 09/08/21 
+to 
+14/08/21
+  MON: 66.0 -> TUE: 25.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/08/21 
+to 
+21/08/21
+  MON: 80.0 -> TUE: 7.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 23/08/21 
+to 
+28/08/21
+  MON: 83.0 -> TUE: 15.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/08/21 
+to 
+04/09/21
+  MON: 59.0 -> TUE: 64.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 06/09/21 
+to 
+11/09/21
+  MON: 35.0 -> TUE: 14.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/09/21 
+to 
+25/09/21
+  MON: 82.0 -> TUE: 58.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 27/09/21 
+to 
+02/10/21
+  MON: 80.0 -> TUE: 99.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 04/10/21 
+to 
+09/10/21
+  MON: 42.0 -> TUE: 43.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/10/21 
+to 
+23/10/21
+  MON: 74.0 -> TUE: 59.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 25/10/21 
+to 
+30/10/21
+  MON: 94.0 -> TUE: 16.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 15/11/21 
+to 
+20/11/21
+  MON: 97.0 -> TUE: 76.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 22/11/21 
+to 
+27/11/21
+  MON: 40.0 -> TUE: 30.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 29/11/21 
+to 
+04/12/21
+  MON: 17.0 -> TUE: 23.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 06/12/21 
+to 
+11/12/21
+  MON: 42.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/12/21 
+to 
+18/12/21
+  MON: 90.0 -> TUE: 37.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/12/21 
+to 
+25/12/21
+  MON: 45.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 03/01/22 
+to 
+08/01/22
+  MON: 84.0 -> TUE: 64.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 10/01/22 
+to 
+15/01/22
+  MON: 9.0 -> TUE: 57.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 17/01/22 
+to 
+22/01/22
+  MON: 5.0 -> TUE: 20.0
+  Failure Category: LOGIC-FADE
+----------------------------------------
+Date: 24/01/22 
+to 
+29/01/22
+  MON: 40.0 -> TUE: 1.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 31/01/22 
+to 
+05/02/22
+  MON: 48.0 -> TUE: 39.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 07/02/22 
+to 
+12/02/22
+  MON: 72.0 -> TUE: 55.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 14/02/22 
+to 
+19/02/22
+  MON: 76.0 -> TUE: 63.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/02/22 
+to 
+26/02/22
+  MON: 81.0 -> TUE: 84.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 28/02/22 
+to 
+05/03/22
+  MON: 96.0 -> TUE: 43.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 07/03/22 
+to 
+12/03/22
+  MON: 93.0 -> TUE: 71.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 14/03/22 
+to 
+19/03/22
+  MON: 52.0 -> TUE: 99.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 21/03/22 
+to 
+26/03/22
+  MON: 70.0 -> TUE: 23.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 28/03/22 
+to 
+02/04/22
+  MON: 66.0 -> TUE: 65.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 11/04/22 
+to 
+16/04/22
+  MON: 52.0 -> TUE: 33.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 18/04/22 
+to 
+23/04/22
+  MON: 35.0 -> TUE: 20.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 25/04/22 
+to 
+30/04/22
+  MON: 7.0 -> TUE: 4.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 02/05/22 
+to 
+07/05/22
+  MON: 34.0 -> TUE: 92.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
+Date: 09/05/22 
+to 
+14/05/22
+  MON: 41.0 -> TUE: 51.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 16/05/22 
+to 
+21/05/22
+  MON: 31.0 -> TUE: 54.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 30/05/22 
+to 
+04/06/22
+  MON: 86.0 -> TUE: 54.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 13/06/22 
+to 
+18/06/22
+  MON: 86.0 -> TUE: 60.0
+  Failure Category: MIRROR-BREAK
+----------------------------------------
+Date: 20/06/20 
+to 
+26/06/22
+  MON: 90.0 -> TUE: 44.0
+  Failure Category: STEP-SHIFT
+----------------------------------------
