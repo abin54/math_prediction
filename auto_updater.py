@@ -118,6 +118,26 @@ def update_excel_file(new_jodi):
         log.error(f"Failed to update Excel: {e}")
     return False
 
+def update_latest_state(new_jodi):
+    """Update latest_state.json for centralized coordination."""
+    state_file = "latest_state.json"
+    try:
+        import json
+        now = datetime.datetime.now()
+        state = {
+            "date": now.strftime("%Y-%m-%d"),
+            "day": now.strftime("%a").upper(),
+            "latest_result": int(new_jodi),
+            "last_updated": now.isoformat()
+        }
+        with open(state_file, "w") as f:
+            json.dump(state, f, indent=4)
+        log.info(f"Updated {state_file} with result {new_jodi}.")
+        return True
+    except Exception as e:
+        log.error(f"Failed to update latest_state.json: {e}")
+    return False
+
 def run_background_poller():
     """Main loop for background monitoring."""
     log.info("Starting Background Auto-Updater...")
@@ -127,10 +147,13 @@ def run_background_poller():
         try:
             jodi = fetch_today_kalyan()
             if jodi:
-                if update_excel_file(jodi):
+                excel_updated = update_excel_file(jodi)
+                state_updated = update_latest_state(jodi)
+                
+                if excel_updated or state_updated:
                     log.info("Datasets updated. Triggering re-prediction...")
-                    # Optional: Execute prediction script here
-                    # os.system("python predict_today.py")
+                    # Trigger the master engine
+                    os.system("python master_prediction_engine.py")
             
             log.info(f"Sleeping for {POLL_INTERVAL}s...")
             time.sleep(POLL_INTERVAL)

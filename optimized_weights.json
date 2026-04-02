@@ -1,0 +1,11 @@
+{
+    "StatAgent": 0.132,
+    "TrendAgent": 0.062,
+    "TransitionAgent": 0.184,
+    "CycleAgent": 0.141,
+    "MirrorTraceAgent": 0.149,
+    "SeriesSpikeAgent": 0.106,
+    "StepAgent": 0.062,
+    "MLAgent": 0.114,
+    "LLMAgent": 0.05
+}

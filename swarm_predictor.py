@@ -39,14 +39,132 @@ RAM_LIMIT_GB = 6.0
 WINDOW_SIZE = 15
 
 # Agent weights (sum = 1.0)
-AGENT_WEIGHTS = {
-    "StatAgent":       0.20,
-    "TrendAgent":      0.15,
-    "TransitionAgent": 0.15,
-    "CycleAgent":      0.15,
-    "MLAgent":         0.20,
-    "LLMAgent":        0.15,
+# Agent weights (can be overwritten by optimized_weights.json)
+DEFAULT_AGENT_WEIGHTS = {
+    "StatAgent":       0.15,
+    "TrendAgent":      0.10,
+    "TransitionAgent": 0.10,
+    "CycleAgent":      0.10,
+    "MirrorTraceAgent": 0.15,
+    "SeriesSpikeAgent": 0.15,  # NEW
+    "StepAgent":        0.10,  # NEW
+    "MLAgent":         0.10,
+    "LLMAgent":        0.05,
 }
+
+def load_optimized_weights():
+    if os.path.exists("optimized_weights.json"):
+        try:
+            with open("optimized_weights.json", "r") as f:
+                weights = json.load(f)
+                # RED TEAM: Enforce 5% Floor
+                for k in weights:
+                    weights[k] = max(0.05, weights[k])
+                return weights
+        except: pass
+    return DEFAULT_AGENT_WEIGHTS
+
+AGENT_WEIGHTS = load_optimized_weights()
+
+def load_learned_tricks():
+    if os.path.exists("learned_tricks.json"):
+        try:
+            with open("learned_tricks.json", "r") as f:
+                return json.load(f)
+        except: pass
+    return {}
+
+LEARNED_TRICKS = load_learned_tricks()
+
+class HistoryAgent:
+    name = "HistoryAgent"
+
+    def predict(self, yesterday_jodi: int = None, **kwargs) -> List[Tuple[int, float]]:
+        if yesterday_jodi is None or not LEARNED_TRICKS:
+            return []
+            
+        candidates = Counter()
+        p_t, p_u = yesterday_jodi // 10, yesterday_jodi % 10
+        
+        # Apply Mirror Trick Weights
+        m_set = get_mirror_set(yesterday_jodi)
+        for m in m_set:
+            candidates[m] += LEARNED_TRICKS.get("Mirror/Family", 0.04) * 100
+            
+        # Apply Open-Step Weights
+        for s in [1, 2, 8, 9]:
+            step_name = f"Open-Step-{s}"
+            if step_name in LEARNED_TRICKS:
+                pred_t = (p_t + s) % 10
+                # Weighted boost for common steps
+                for i in range(10):
+                    candidates[pred_t * 10 + i] += LEARNED_TRICKS[step_name] * 50
+                    
+        # Apply Repeat Weights
+        for i in range(10):
+            candidates[p_t * 10 + i] += LEARNED_TRICKS.get("Repeat-Open", 0.11) * 30
+            candidates[i * 10 + p_u] += LEARNED_TRICKS.get("Repeat-Close", 0.09) * 30
+            
+        # Apply Sum-Total Echo
+        sum_p = (p_t + p_u) % 10
+        for i in range(10):
+            candidates[sum_p * 10 + i] += LEARNED_TRICKS.get("Sum-Total-Echo", 0.18) * 20
+            candidates[i * 10 + sum_p] += LEARNED_TRICKS.get("Sum-Total-Echo", 0.18) * 20
+
+        total = sum(candidates.values()) or 1
+        return [(v, round(w / total, 3)) for v, w in candidates.most_common(8)]
+
+def load_learned_tricks():
+    if os.path.exists("learned_tricks.json"):
+        try:
+            with open("learned_tricks.json", "r") as f:
+                return json.load(f)
+        except: pass
+    return {}
+
+LEARNED_TRICKS = load_learned_tricks()
+
+class HistoryAgent:
+    name = "HistoryAgent"
+
+    def predict(self, yesterday_jodi: int = None, **kwargs) -> List[Tuple[int, float]]:
+        if yesterday_jodi is None or not LEARNED_TRICKS:
+            return []
+            
+        candidates = Counter()
+        p_t, p_u = yesterday_jodi // 10, yesterday_jodi % 10
+        
+        # Apply Mirror Trick Weights
+        m_set = get_mirror_set(yesterday_jodi)
+        for m in m_set:
+            candidates[m] += LEARNED_TRICKS.get("Mirror/Family", 0.04) * 100
+            
+        # Apply Open-Step Weights
+        for s in [1, 2, 8, 9]:
+            step_name = f"Open-Step-{s}"
+            if step_name in LEARNED_TRICKS:
+                pred_t = (p_t + s) % 10
+                # Weighted boost for common steps
+                for i in range(10):
+                    candidates[pred_t * 10 + i] += LEARNED_TRICKS[step_name] * 50
+                    
+        # Apply Repeat Weights
+        for i in range(10):
+            candidates[p_t * 10 + i] += LEARNED_TRICKS.get("Repeat-Open", 0.11) * 30
+            candidates[i * 10 + p_u] += LEARNED_TRICKS.get("Repeat-Close", 0.09) * 30
+            
+        # Apply Sum-Total Echo
+        sum_p = (p_t + p_u) % 10
+        for i in range(10):
+            candidates[sum_p * 10 + i] += LEARNED_TRICKS.get("Sum-Total-Echo", 0.18) * 20
+            candidates[i * 10 + sum_p] += LEARNED_TRICKS.get("Sum-Total-Echo", 0.18) * 20
+
+        total = sum(candidates.values()) or 1
+        return [(v, round(w / total, 3)) for v, w in candidates.most_common(8)]
+
+# Mirror/Cut map: 0?5, 1?6, 2?7, 3?8, 4?9
+MIRROR = {0:5, 1:6, 2:7, 3:8, 4:9, 5:0, 6:1, 7:2, 8:3, 9:4}
+
 
 
 # ===========================================================
@@ -420,9 +538,121 @@ class CycleAgent:
         return [(v, w / total) for v, w in candidates.most_common(8)]
 
 
-# ===========================================================
-# AGENT 5: MLAgent ? XGBoost GPU + Enhanced Features
-# ===========================================================
+class MirrorTraceAgent:
+    name = "MirrorTraceAgent"
+
+    def predict(self, target_day_vals: List[int], yesterday_jodi: int = None, **kwargs) -> List[Tuple[int, float]]:
+        if not target_day_vals or yesterday_jodi is None:
+            return []
+
+        candidates = Counter()
+        
+        # Mirror map: 0->5, 1->6, 2->7, 3->8, 4->9
+        MIRROR = {0:5, 1:6, 2:7, 3:8, 4:9, 5:0, 6:1, 7:2, 8:3, 9:4}
+        
+        y_tens = yesterday_jodi // 10
+        y_units = yesterday_jodi % 10
+        
+        # 1. Full Mirror (74 -> 29)
+        full_mirror = MIRROR[y_tens] * 10 + MIRROR[y_units]
+        candidates[full_mirror] += 10
+        
+        # 2. Open Mirror (74 -> 24)
+        open_mirror = MIRROR[y_tens] * 10 + y_units
+        candidates[open_mirror] += 8
+        
+        # 3. Close Mirror (74 -> 79)
+        close_mirror = y_tens * 10 + MIRROR[y_units]
+        candidates[close_mirror] += 8
+        
+        # 4. Family Logic (4 numbers in a mirror set)
+        family = [
+            y_tens * 10 + y_units,
+            MIRROR[y_tens] * 10 + y_units,
+            y_tens * 10 + MIRROR[y_units],
+            MIRROR[y_tens] * 10 + MIRROR[y_units]
+        ]
+        for f in family:
+            if f != yesterday_jodi:
+                candidates[f] += 5
+
+        # 5. Historical Mirror Patterns
+        # Look for times when target followed a mirror
+        for i in range(len(target_day_vals) - 1):
+            val = target_day_vals[i]
+            target = target_day_vals[i+1]
+            if val == full_mirror or val == open_mirror or val == close_mirror:
+                candidates[target] += 3
+
+        total = sum(candidates.values()) or 1
+        return [(v, round(w / total, 3)) for v, w in candidates.most_common(6)]
+class SeriesSpikeAgent:
+    name = "SeriesSpikeAgent"
+
+    def predict(self, target_day_vals: List[int], **kwargs) -> List[Tuple[int, float]]:
+        if len(target_day_vals) < 15:
+            return []
+            
+        candidates = Counter()
+        recent_20 = target_day_vals[-20:]
+        
+        # Analyze tens-digit 'Heat'
+        tens_heat = Counter(v // 10 for v in recent_20)
+        top_tens = [t for t, _ in tens_heat.most_common(2)]
+        
+        # Analyze units-digit 'Heat'
+        units_heat = Counter(v % 10 for v in recent_20)
+        top_units = [u for u, _ in units_heat.most_common(2)]
+        
+        for t in top_tens:
+            for u in top_units:
+                # Numbers in the hot series get a boost
+                candidates[t * 10 + u] += 10
+                
+        # Total-digit 'Heat' (Sum of digits)
+        sum_heat = Counter(v // 10 + v % 10 for v in recent_20)
+        top_sums = [s for s, _ in sum_heat.most_common(2)]
+        
+        for i in range(100):
+            if (i // 10 + i % 10) in top_sums:
+                candidates[i] += 5
+
+        total = sum(candidates.values()) or 1
+        return [(v, round(w / total, 3)) for v, w in candidates.most_common(6)]
+
+class StepAgent:
+    name = "StepAgent"
+
+    def predict(self, target_day_vals: List[int], **kwargs) -> List[Tuple[int, float]]:
+        if len(target_day_vals) < 10:
+            return []
+            
+        candidates = Counter()
+        diffs = [target_day_vals[i+1] - target_day_vals[i] for i in range(len(target_day_vals)-1)]
+        
+        # Look for repeated steps (deltas)
+        recent_diffs = diffs[-15:]
+        freq_diffs = Counter(recent_diffs)
+        
+        last_val = target_day_vals[-1]
+        
+        # Apply the most common steps to the last result
+        for d, cnt in freq_diffs.most_common(3):
+            pred = (last_val + d) % 100
+            candidates[pred] += cnt * 5
+            
+        # Look for 'Lagged Steps' (Steps that repeat after X iterations)
+        if len(diffs) > 10:
+            for lag in range(2, 6):
+                if diffs[-1] == diffs[-lag]:
+                    # The pattern is repeating!
+                    pred_lag = (last_val + diffs[-lag+1]) % 100
+                    candidates[pred_lag] += 10
+
+        total = sum(candidates.values()) or 1
+        return [(v, round(w / total, 3)) for v, w in candidates.most_common(6)]
+
+
 class MLAgent:
     name = "MLAgent"
 
@@ -726,6 +956,10 @@ def run_swarm(target_day: str = "TUE", yesterday_day: str = "MON",
         ("TrendAgent", TrendAgent()),
         ("TransitionAgent", TransitionAgent()),
         ("CycleAgent", CycleAgent()),
+        ("MirrorTraceAgent", MirrorTraceAgent()),
+        ("SeriesSpikeAgent", SeriesSpikeAgent()), # INTEGRATED
+        ("StepAgent", StepAgent()),               # INTEGRATED
+        ("HistoryAgent", HistoryAgent()),         # NEW: 14-Year Trick Analysis
         ("MLAgent", MLAgent()),
     ]
 
@@ -792,8 +1026,27 @@ def run_swarm(target_day: str = "TUE", yesterday_day: str = "MON",
     # Final ensemble
     final = ensemble_vote(agent_results)
 
+    # Mirror-Symmetry Correction (Ensuring no 1-6 or 2-7 Cut Errors)
+    mirror_final = []
+    seen = set()
+    for jodi, weight in final:
+        if jodi in seen: continue
+        mirror_final.append((jodi, weight))
+        seen.add(jodi)
+        
+        # Calculate full cut
+        t, u = jodi // 10, jodi % 10
+        fc = MIRROR[t] * 10 + MIRROR[u]
+        if fc not in seen:
+            # Promote full cut with 90% of the original's confidence
+            mirror_final.append((fc, weight * 0.9))
+            seen.add(fc)
+            
+    mirror_final.sort(key=lambda x: x[1], reverse=True)
+    final = mirror_final[:10]
+
     print("=" * 70)
-    print("  *** SWARM ENSEMBLE PREDICTION ***")
+    print("  *** SWARM ENSEMBLE PREDICTION (PHASE-AWARE) ***")
     print("=" * 70)
     print()
     for i, (jodi, weight) in enumerate(final[:6]):
@@ -802,8 +1055,10 @@ def run_swarm(target_day: str = "TUE", yesterday_day: str = "MON",
         print(f"  {marker}{rank} Choice:  {jodi:02d}   (confidence: {weight:.1%})")
     print()
     print(f"  Yesterday {yesterday_day} = {yesterday_jodi:02d}")
-    print(f"  Today {target_day} prediction = {final[0][0]:02d} (primary)")
+    print(f"  Today {target_day} Prediction = {final[0][0]:02d} (primary)")
+    print(f"  Mirror Successor = {final[1][0]:02d} (backup)")
     print()
+
 
     # Agent agreement analysis
     agent_top1 = {}
@@ -829,9 +1084,22 @@ def run_swarm(target_day: str = "TUE", yesterday_day: str = "MON",
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description="Swarm Predictor - MiroFish Inspired")
-    parser.add_argument("--day", default="TUE", help="Day to predict (MON/TUE/WED/THU/FRI/SAT)")
-    parser.add_argument("--yesterday-day", default="MON", help="Yesterday's day")
-    parser.add_argument("--yesterday-jodi", type=int, default=74, help="Yesterday's Jodi number")
+    # Try to load latest_state.json for defaults
+    def_day, def_y_day, def_y_jodi = "MON", "SAT", 00
+    if os.path.exists("latest_state.json"):
+        try:
+            with open("latest_state.json", "r") as f:
+                state = json.load(f)
+                def_y_jodi = state.get("latest_result", 0)
+                def_y_day = state.get("day", "MON")
+                # Target day is usually next in sequence
+                idx = DAYS.index(def_y_day)
+                def_day = DAYS[(idx + 1) % len(DAYS)]
+        except: pass
+
+    parser.add_argument("--day", default=def_day, help="Day to predict")
+    parser.add_argument("--yesterday-day", default=def_y_day, help="Yesterday's day")
+    parser.add_argument("--yesterday-jodi", type=int, default=def_y_jodi, help="Yesterday's Jodi")
     args = parser.parse_args()
 
     os.chdir(os.path.dirname(os.path.abspath(__file__)) or ".")
