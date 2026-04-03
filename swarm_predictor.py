@@ -28,7 +28,7 @@ warnings.filterwarnings('ignore')
 # ===========================================================
 EXCEL_FILE_1 = "Number_Chart.xlsx"
 EXCEL_FILE_2 = "Kalyan_Panel_Chart_Dataset.xlsx"
-SHEET_NAME_1 = "Numeric Analysis"
+SHEET_NAME_1 = "Sheet1"
 DAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT"]
 
 OLLAMA_URL = "http://127.0.0.1:11434"

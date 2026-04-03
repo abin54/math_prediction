@@ -22,7 +22,7 @@ def run_self_training(days_back=10):
     print("="*70)
     
     # Load dataset
-    df = pd.read_excel("Number_Chart.xlsx", sheet_name="Numeric Analysis")
+    df = pd.read_excel("Number_Chart.xlsx", sheet_name="Sheet1")
     results = {}
     for day in ["MON", "TUE", "WED", "THU", "FRI", "SAT"]:
         col = f"{day} Jodi Num"
