@@ -8,4 +8,5 @@ services:
       - ./data:/app/data
     environment:
       - DATABASE_URL=sqlite:///./data/prediction_db.sqlite
+      - LOG_LEVEL=INFO
     restart: unless-stopped
