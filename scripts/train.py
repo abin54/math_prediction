@@ -52,6 +52,10 @@ def train_models():
             subsample=0.8, objective='reg:absoluteerror', random_state=42
         )
         model.fit(X_train, y_train, verbose=False)
+        
+        # Bind feature names to model metadata to prevent drift
+        model.get_booster().set_attr(feature_names=",".join(feature_cols))
+        
         model.save_model(f'models/xgb_day_{i}.json')
     print("Training complete.")
 

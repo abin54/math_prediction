@@ -1,18 +1,14 @@
-import logging
-import json
-from fastapi import FastAPI, HTTPException, Depends
-from pydantic import BaseModel, Field
-from typing import List
-from datetime import date
-import xgboost as xgb
 import pandas as pd
 import os
 import sys
+from fastapi import FastAPI, HTTPException, Depends, BackgroundTasks
+from fastapi.concurrency import run_in_threadpool
+from pydantic import BaseModel, Field
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from src.config import settings
-from src.database import get_db, get_historical_df, DailyValue
+from src.database import SessionLocal, get_db, get_historical_df, DailyValue
 from src.features import FeatureEngineer
 
 # --- STRUCTURED LOGGING ---
@@ -29,25 +25,48 @@ handler.setFormatter(JSONFormatter())
 logger.addHandler(handler)
 
 # --- APP SETUP ---
-app = FastAPI(title="Production Time Series Forecast")
+app = FastAPI(title="Enterprise Time Series Forecast")
 
-models = {}
-feature_cols = FeatureEngineer.get_feature_columns()
+# Global State Cache (Eliminates redundant DB I/O)
+class StateCache:
+    def __init__(self):
+        self.df_hist: pd.DataFrame = pd.DataFrame()
+        self.df_fe: pd.DataFrame = pd.DataFrame()
+        self.models: dict = {}
+        self.feature_cols: list = FeatureEngineer.get_feature_columns()
+
+cache = StateCache()
 
 @app.on_event("startup")
-def load_models():
+async def startup_event():
     logger.info("INIT", extra={"event": "startup"})
+    
+    # 1. Load Models & Validate Schema Binding
     for i in range(1, 8):
         path = f"models/xgb_day_{i}.json"
         if not os.path.exists(path):
             logger.error("MISSING_MODEL", extra={"model": path})
-            # For local dev, don't crash if models aren't trained yet
-            print(f"WARNING: Missing model file: {path}")
             continue
         m = xgb.XGBRegressor()
         m.load_model(path)
-        models[i] = m
-    logger.info("MODELS_LOADED", extra={"count": len(models)})
+        
+        # Validate Feature Schema Binding
+        saved_features = m.get_booster().attr("feature_names")
+        if saved_features:
+            current_features = ",".join(cache.feature_cols)
+            if saved_features != current_features:
+                logger.critical("FEATURE_DRIFT_DETECTED", extra={"saved": saved_features, "current": current_features})
+                raise RuntimeError(f"Feature drift in model {i}!")
+                
+        cache.models[i] = m
+    
+    # 2. Warm up the In-Memory Cache
+    logger.info("WARMING_CACHE")
+    cache.df_hist = await run_in_threadpool(get_historical_df, 1000)
+    if not cache.df_hist.empty:
+        cache.df_fe = await run_in_threadpool(FeatureEngineer.build_features, cache.df_hist)
+        
+    logger.info("STARTUP_COMPLETE", extra={"models": len(cache.models), "cache_rows": len(cache.df_fe)})
 
 # --- STRICT PYDANTIC SCHEMAS ---
 class ForecastItem(BaseModel):
@@ -60,52 +79,65 @@ class UpdateRequest(BaseModel):
 
 # --- ENDPOINTS ---
 @app.get("/forecast/next7", response_model=List[ForecastItem])
-def forecast_next_7_days():
+async def forecast_next_7_days():
     try:
-        if len(models) < 7:
-            raise HTTPException(status_code=500, detail="Models not fully loaded. Run training first.")
+        if len(cache.models) < 7:
+            raise HTTPException(status_code=500, detail="Models not fully loaded.")
             
-        df_hist = get_historical_df(days=1000)
-        if df_hist.empty:
-            logger.error("EMPTY_DB")
-            raise HTTPException(status_code=400, detail="Database empty.")
+        if cache.df_fe.empty:
+            logger.error("CACHE_EMPTY")
+            raise HTTPException(status_code=400, detail="No historical data available in cache.")
             
-        df_fe = FeatureEngineer.build_features(df_hist)
-        if df_fe.empty:
-            raise HTTPException(status_code=400, detail="Insufficient data for 365-day lags.")
-            
-        X_latest = df_fe.iloc[-1:][feature_cols]
-        predictions = []
-        last_date = df_fe.iloc[-1]['ds']
+        # Get the absolute latest row from in-memory cache (Zero I/O Latency)
+        latest_row = cache.df_fe.iloc[-1:]
+        X_latest = latest_row[cache.feature_cols]
+        last_date = latest_row['ds'].values[0]
         
+        predictions = []
         for i in range(1, 8):
-            pred_val = models[i].predict(X_latest)[0]
+            # Offload CPU-bound prediction to thread pool to prevent event loop blocking
+            pred_val = await run_in_threadpool(cache.models[i].predict, X_latest)
             pred_date = pd.to_datetime(last_date) + pd.Timedelta(days=i)
             predictions.append(ForecastItem(
                 date=pred_date.strftime('%Y-%m-%d'),
-                predicted_value=round(float(pred_val), 2)
+                predicted_value=round(float(pred_val[0]), 2)
             ))
             
-        logger.info("PREDICTION_MADE", extra={"target_days": 7})
         return predictions
         
-    except HTTPException:
-        raise
     except Exception as e:
         logger.error("PREDICTION_FAILED", extra={"error": str(e)})
         raise HTTPException(status_code=500, detail="Internal prediction error")
 
+def process_update(data: UpdateRequest):
+    """Background task to sync cache and database without blocking the API."""
+    db = SessionLocal()
+    try:
+        # 1. Update Database
+        exists = db.query(DailyValue).filter(DailyValue.date == data.date).first()
+        if exists:
+            exists.value = data.value
+        else:
+            db.add(DailyValue(date=data.date, value=data.value))
+        db.commit()
+        
+        # 2. Update In-Memory Cache
+        new_row = pd.DataFrame({"ds": [data.date], "value": [data.value]})
+        cache.df_hist = pd.concat([cache.df_hist, new_row]).drop_duplicates(subset='ds', keep='last').sort_values('ds')
+        
+        # Recalculate features for the tail (minimal CPU impact compared to full recalculation)
+        cache.df_fe = FeatureEngineer.build_features(cache.df_hist)
+        
+        logger.info("CACHE_SYNC_COMPLETE", extra={"date": str(data.date)})
+    finally:
+        db.close()
+
 @app.post("/update")
-def update_actual_value(data: UpdateRequest, db=Depends(get_db)):
-    exists = db.query(DailyValue).filter(DailyValue.date == data.date).first()
-    if exists:
-        exists.value = data.value
-    else:
-        db.add(DailyValue(date=data.date, value=data.value))
-    db.commit()
-    logger.info("DATA_UPDATED", extra={"date": str(data.date), "value": data.value})
-    return {"status": "success"}
+async def update_actual_value(data: UpdateRequest, background_tasks: BackgroundTasks):
+    """Acknowledges data instantly; persistence and cache sync happen in the background."""
+    background_tasks.add_task(process_update, data)
+    return {"status": "accepted", "details": "Syncing with Sovereign Cache"}
 
 @app.get("/health")
 def health():
-    return {"status": "healthy", "models_loaded": len(models) == 7}
+    return {"status": "healthy", "models_loaded": len(cache.models) == 7, "cache_size": len(cache.df_fe)}

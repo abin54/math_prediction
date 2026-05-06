@@ -13,7 +13,8 @@ dependencies = [
     "pydantic-settings==2.1.0",
     "sqlalchemy==2.0.23",
     "python-json-logger==2.0.7",
-    "requests"
+    "requests",
+    "alembic==1.13.1"
 ]
 
 [build-system]
