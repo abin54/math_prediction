@@ -47,13 +47,11 @@ def forecast_next_7_days():
         if len(models) < 7:
              raise HTTPException(status_code=500, detail="Models not fully loaded. Run training first.")
              
-        df_hist = get_historical_df(days=800)
-        print(f"DEBUG: df_hist shape: {df_hist.shape}")
+        df_hist = get_historical_df(days=1000)
         if df_hist.empty:
              raise HTTPException(status_code=500, detail="Database is empty. Please seed data first.")
              
         df_fe = feature_engineer.build_features(df_hist)
-        print(f"DEBUG: df_fe shape: {df_fe.shape}")
         
         # 2. Get the absolute latest row (Yesterday/Today)
         latest_data = df_fe.iloc[-1:]
