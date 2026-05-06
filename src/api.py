@@ -63,7 +63,6 @@ def forecast_next_7_days():
         
         for i in range(1, 8):
             pred_val = models[i].predict(X_latest)[0]
-            # Convert numpy timestamp to pandas timestamp if needed
             pred_date = pd.to_datetime(last_date) + pd.Timedelta(days=i)
             
             predictions.append(ForecastItem(
@@ -74,8 +73,6 @@ def forecast_next_7_days():
         return predictions
         
     except Exception as e:
-        import traceback
-        print(traceback.format_exc())
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/update")
@@ -87,7 +84,7 @@ def update_actual_value(data: UpdateRequest, db=Depends(get_db)):
     else:
         db.add(DailyValue(date=data.date, value=data.value))
     db.commit()
-    return {"status": "success", "message": f"Recorded {data.value} for {data.date}"}
+    return {"status": "success"}
 
 @app.get("/health")
 def health():
