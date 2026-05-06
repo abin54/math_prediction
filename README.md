@@ -1,95 +1,52 @@
-# Math Prediction Service
+# Math Prediction API
 
-A production-ready machine learning service for mathematical predictions and forensic analysis.
-
----
-
-## 🚀 Features
-
-- **FastAPI-based REST API**: High-performance asynchronous API for model serving.
-- **Sovereign AI Decision Engine**: A hybrid forensic engine using GUR (Grand Unified Rule), Swarm Consensus, and Hyper-Recursion.
-- **Multi-Engine Training Suite**: Advanced time-series forecasting via **Prophet**, **Amazon Chronos**, **NeuralForecast (N-HiTS)**, and **XGBoost**.
-- **Experiment Tracking**: Integrated with **MLflow** for rigorous tracking of parameters, metrics, and artifacts.
-- **Model Versioning & Registry**: Built-in system for registering, versioning, and loading models.
-- **Forensic Auditing**: Recursive backtracking and temporal DNA analysis to ensure 100% causal consistency.
-- **Dockerized Deployment**: Fully containerized with Docker and Docker Compose for easy orchestration.
-- **Comprehensive Test Suite**: Unit and integration tests using Pytest.
-- **Type-hinted & Documented**: Clean, maintainable code following modern Python best practices.
+A production-ready REST API for forecasting daily numerical sequences using 52 years of historical data.
 
 ---
 
-## 🛠 Quick Start
+## 🚀 Architecture
 
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/abin54/math_prediction.git
-cd math_prediction
-```
-
-### 2. Install Dependencies
-
-Using the provided Makefile for standard installation:
-
-```bash
-make install
-```
-
-### 3. Train the Sovereign Engine
-
-Run the multi-engine training pipeline to calibrate Prophet, Chronos, and NeuralForecast models:
-
-```bash
-python train.py
-```
-
-### 4. Analyze Today's Singularity
-
-Execute the Sovereign Judge Master to generate today's forensic prediction:
-
-```bash
-python Sovereign_Judge_Master.py
-```
-
-### 5. Start the API
-
-Launch the FastAPI development server:
-
-```bash
-uvicorn src.api.main:app --reload
-```
+- **Model**: XGBoost Regressor optimized for **Mean Absolute Error (MAE)**.
+- **Features**: Cyclical time encoding (Fourier terms), recursive lag features (1, 7, 30, 365 days), and rolling volatility statistics.
+- **API**: FastAPI with automatic OpenAPI (Swagger) documentation.
+- **Persistence**: SQLAlchemy + SQLite for historical update retention.
+- **Deployment**: Fully Dockerized for environment parity.
 
 ---
 
-## 📖 API Documentation
+## 🔍 Why This Works
 
-Once the API is running, you can access the interactive documentation:
+Standard regression fails on time-series because it ignores temporal dependencies. This service engineers **Temporal Features** (e.g., capturing weekly seasonality via sine/cosine transforms and 365-day lags) to allow tree-based models to understand chronological patterns without data leakage.
 
-- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
-- **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
-
----
-
-## ⚙️ Configuration
-
-All system parameters, including model hyperparameters, feature schemas, and API settings, are managed in the `configs/` directory.
-
-- **Base Config**: `configs/base.yaml`
-- **Production Config**: `configs/production.yaml`
+The system utilizes a **Recursive Forecasting** strategy for multi-day horizons, ensuring that future projections are grounded in the model's own predicted state.
 
 ---
 
-## 🐳 Docker Deployment
+## 🛠 Endpoints
 
-To spin up the entire stack (API + Redis) using Docker:
+- `GET /forecast/next7`: Returns a high-fidelity 7-day forecast.
+- `POST /update`: Ingests daily actual data into the SQLite persistence layer to prevent concept drift.
+- `GET /health`: System liveness and model status check.
 
+---
+
+## 📦 Quick Start
+
+### 1. Build & Run
 ```bash
-make docker-build
-make docker-up
+docker build -t math-forecast .
+docker run -p 8000:8000 math-forecast
 ```
+
+### 2. Manual Training
+```bash
+python train_production.py
+```
+
+### 3. Automated Retraining
+The system includes a **GitHub Actions** workflow (`retrain.yml`) that automatically recalibrates the model on the 1st of every month using the latest ground-truth data.
 
 ---
 
 ## ⚖️ License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+Distributed under the MIT License. See `LICENSE` for more information.

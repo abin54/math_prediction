@@ -1,0 +1,23 @@
+name: Monthly Retrain
+on:
+  schedule:
+    - cron: '0 0 1 * *' # Runs at midnight on the 1st of every month
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  retrain:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r requirements.txt
+      - run: python scripts/retrain_and_save.py 
+      - name: Commit and Push Model
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          git add models/latest_model.json
+          git commit -m "Automated monthly model retrain [skip ci]" || echo "No changes to commit"
+          git push

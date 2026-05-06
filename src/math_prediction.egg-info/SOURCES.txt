@@ -7,6 +7,7 @@ src/api/main.py
 src/data/__init__.py
 src/inference/__init__.py
 src/inference/predictor.py
+src/inference/sovereign_ensemble.py
 src/math_prediction.egg-info/PKG-INFO
 src/math_prediction.egg-info/SOURCES.txt
 src/math_prediction.egg-info/dependency_links.txt
