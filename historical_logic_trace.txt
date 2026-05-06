@@ -101,3 +101,8 @@ to
 04/04/2026
 Logic Trace: MON->TUE:STEP-3|UNIT-LOCK|STEP-3-SYM
 --------------------------------------------------
+Week: 06/04/2026 
+to 
+11/04/2026
+Logic Trace: MON->TUE:STEP-4|PARALLEL-DESCENT
+--------------------------------------------------

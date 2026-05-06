@@ -1,0 +1,111 @@
+Metadata-Version: 2.4
+Name: math-prediction
+Version: 1.0.0
+Summary: Mathematical prediction service with ML models
+Author-email: abin54 <abin@example.com>
+License: MIT
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=1.24.0
+Requires-Dist: pandas>=2.0.0
+Requires-Dist: scikit-learn>=1.3.0
+Requires-Dist: xgboost>=2.0.0
+Requires-Dist: fastapi>=0.104.0
+Requires-Dist: uvicorn[standard]>=0.24.0
+Requires-Dist: pydantic>=2.5.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: joblib>=1.3.0
+Requires-Dist: mlflow>=2.8.0
+Requires-Dist: redis>=5.0.0
+Requires-Dist: loguru>=0.7.0
+Provides-Extra: dev
+Requires-Dist: ruff>=0.1.0; extra == "dev"
+Requires-Dist: mypy>=1.7.0; extra == "dev"
+Requires-Dist: pre-commit>=3.6.0; extra == "dev"
+Provides-Extra: test
+Requires-Dist: pytest>=7.4.0; extra == "test"
+Requires-Dist: pytest-cov>=4.1.0; extra == "test"
+Requires-Dist: pytest-asyncio>=0.23.0; extra == "test"
+Requires-Dist: httpx>=0.25.0; extra == "test"
+Provides-Extra: training
+Requires-Dist: matplotlib>=3.8.0; extra == "training"
+Requires-Dist: seaborn>=0.13.0; extra == "training"
+Requires-Dist: jupyter>=1.0.0; extra == "training"
+Dynamic: license-file
+
+# Math Prediction Service
+
+A production-ready machine learning service for mathematical predictions and forensic analysis.
+
+---
+
+## 🚀 Features
+
+- **FastAPI-based REST API**: High-performance asynchronous API for model serving.
+- **Multiple ML Model Support**: Support for Linear Regression, Random Forest, XGBoost, and Neural Networks via a factory pattern.
+- **Experiment Tracking**: Integrated with **MLflow** for rigorous tracking of parameters, metrics, and artifacts.
+- **Model Versioning & Registry**: Built-in system for registering, versioning, and loading models.
+- **Prediction Monitoring**: Real-time monitoring of latency, prediction drift, and anomaly detection.
+- **Dockerized Deployment**: Fully containerized with Docker and Docker Compose for easy orchestration.
+- **Comprehensive Test Suite**: Unit and integration tests using Pytest.
+- **Type-hinted & Documented**: Clean, maintainable code following modern Python best practices.
+
+---
+
+## 🛠 Quick Start
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/abin54/math_prediction.git
+cd math_prediction
+```
+
+### 2. Install Dependencies
+Using the provided Makefile for standard installation:
+```bash
+make install
+```
+
+### 3. Train a Model
+Execute the training pipeline using the default configuration:
+```bash
+make train
+```
+
+### 4. Start the API
+Launch the FastAPI development server:
+```bash
+uvicorn src.api.main:app --reload
+```
+
+---
+
+## 📖 API Documentation
+
+Once the API is running, you can access the interactive documentation:
+- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+---
+
+## ⚙️ Configuration
+
+All system parameters, including model hyperparameters, feature schemas, and API settings, are managed in the `configs/` directory.
+- **Base Config**: `configs/base.yaml`
+- **Production Config**: `configs/production.yaml`
+
+---
+
+## 🐳 Docker Deployment
+
+To spin up the entire stack (API + Redis) using Docker:
+```bash
+make docker-build
+make docker-up
+```
+
+---
+
+## ⚖️ License
+This project is licensed under the MIT License - see the LICENSE file for details.

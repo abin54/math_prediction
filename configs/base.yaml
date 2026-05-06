@@ -1,0 +1,21 @@
+model:
+  type: "hybrid_ensemble"
+  path: "models/hybrid_ensemble"
+  parameters:
+    n_estimators: 100
+    max_depth: 10
+    random_state: 42
+
+data:
+  features:
+    - name: "over"
+      type: "float"
+    - name: "total_runs"
+      type: "int"
+  preprocessing:
+    normalize: true
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4

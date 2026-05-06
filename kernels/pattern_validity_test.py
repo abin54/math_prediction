@@ -18,7 +18,9 @@ EXCEL_FILE_1 = "Number_Chart.xlsx"
 
 def load_clean_data():
     if os.path.exists(EXCEL_FILE_1):
-        df = pd.read_excel(EXCEL_FILE_1, sheet_name="Numeric Analysis", header=0)
+        xl = pd.ExcelFile(EXCEL_FILE_1)
+        sheet = "Numeric Analysis" if "Numeric Analysis" in xl.sheet_names else xl.sheet_names[0]
+        df = pd.read_excel(EXCEL_FILE_1, sheet_name=sheet, header=0)
         # Flatten all days to get a single sequence
         all_vals = []
         for col in ["MON Jodi Num", "TUE Jodi Num", "WED Jodi Num", "THU Jodi Num", "FRI Jodi Num", "SAT Jodi Num"]:
@@ -84,7 +86,9 @@ def test_patterns():
     # (Checking if the MON -> TUE transition is stable)
     print(f"\n  [TEST 3] Monday -> Tuesday Stability")
     print(f"  ------------------------------------------------")
-    df = pd.read_excel(EXCEL_FILE_1, sheet_name="Numeric Analysis", header=0)
+    xl = pd.ExcelFile(EXCEL_FILE_1)
+    sheet = "Numeric Analysis" if "Numeric Analysis" in xl.sheet_names else xl.sheet_names[0]
+    df = pd.read_excel(EXCEL_FILE_1, sheet_name=sheet, header=0)
     if "MON Jodi Num" in df.columns and "TUE Jodi Num" in df.columns:
         m_vals = pd.to_numeric(df["MON Jodi Num"], errors="coerce").dropna().astype(int).tolist()
         t_vals = pd.to_numeric(df["TUE Jodi Num"], errors="coerce").dropna().astype(int).tolist()

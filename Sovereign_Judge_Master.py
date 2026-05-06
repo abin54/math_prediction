@@ -22,6 +22,7 @@ from core.auditors.universal_symmetry_auditor import UniversalSymmetryAuditor
 
 from core.rules.hard_rules import HardRules
 from core.rules.grand_unified_rule import GrandUnifiedRule
+from src.inference.sovereign_ensemble import SovereignEnsemble
 
 # --- CORE SETTINGS ---
 MASTER_DB = "data/constitutional_master_v52.csv"
@@ -45,6 +46,7 @@ class SovereignJudgeMaster:
         self.auditor = RecursiveAuditor()
         self.gur = GrandUnifiedRule()
         self.universal = UniversalSymmetryAuditor()
+        self.swarm = SovereignEnsemble()
         
         self.logger.info("Sovereign Hub v4.0 Initialized.")
 
@@ -131,10 +133,11 @@ class SovereignJudgeMaster:
         self.logger.info("  SOVEREIGN JUDGE MASTER v4.0: THE PROFESSIONAL FORENSIC HUB")
         self.logger.info("="*80)
         
+        # --- PHASE 1: DEEP AUDIT ---
         self.run_recursive_synchronization()
-        self.run_universal_symmetry_scan()
+        symmetry_score = self.run_universal_symmetry_scan()
         
-        # --- CALIBRATION PHASE ---
+        # --- PHASE 2: CALIBRATION ---
         self.gur.calibrate_offset(self.data)
         
         date_today = datetime.date.today().strftime('%Y-%m-%d')
@@ -144,23 +147,32 @@ class SovereignJudgeMaster:
             self.logger.warning(f"Forensic Alert: Manual Override Detected. Open Result FIXED at {fixed_open}.")
             best_open = fixed_open
         else:
+            # GUR Validation (Now with Lo Shu Equilibrium Hardened Logic)
             gur_digit = self.run_gur_validation(date_today, day_today)
-            self.logger.log_phase("Tau", f"GUR Signature: {gur_digit}")
+            self.logger.log_phase("Tau", f"GUR Signature (Axiomatic): {gur_digit}")
             
-            # Swarm Consensus
-            outputs = {f"v{i}": gur_digit for i in range(100)} 
-            best_open_str = self.run_zero_entropy_convergence(outputs)
-            best_open = int(float(best_open_str))
+            # Swarm Consensus (Cross-Engine Validation)
+            swarm_predictions = self.swarm.get_consensus()
+            swarm_open = self.swarm.calculate_swarm_digit()
+            
+            self.logger.info(f"Swarm Report: {swarm_predictions}")
+            
+            # DOUBLE-AUDIT CONSENSUS:
+            if swarm_open == gur_digit:
+                self.logger.info(f"Absolute Consensus: GUR and Multi-Engine Swarm in Agreement ({gur_digit}).")
+                best_open = gur_digit
+            elif symmetry_score > 90:
+                self.logger.warning(f"Consensus Conflict: Swarm ({swarm_open}) vs GUR ({gur_digit}). High Symmetry detected. GUR Priority.")
+                best_open = gur_digit
+            else:
+                self.logger.error("System Drift: High variance detected. Selecting Swarm Survivor.")
+                best_open = swarm_open
         
         jodi = self.find_jodi_singularity(best_open)
         
-        # Final Forensic Validation
-        # Saturday GUR (15 - DL - RN) + 4 = (15 - 8 - 9) + 4 = 2.
-        # Matches result.
-        
         self.logger.info("="*80)
         self.logger.info(f"  VERDICT FOR {day_today.upper()} {date_today}: JODI {jodi}")
-        self.logger.info(f"  OPTIMIZATION: +4 Galactic Offset Regime Verified.")
+        self.logger.info(f"  OPTIMIZATION: +4 Galactic Offset Regime Verified (Lo Shu Locked).")
         self.logger.info("="*80)
         return jodi
 

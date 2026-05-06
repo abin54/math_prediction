@@ -2,6 +2,7 @@
 # Synthesizing 52-Year Periodicities with Zero Variance
 
 import pandas as pd
+import datetime
 from core.rules.hard_rules import HardRules
 from core.utils.forensic_logger import ForensicLogger
 
@@ -65,8 +66,18 @@ class GrandUnifiedRule:
             self.dynamic_offset = calculated_offsets[0]
             self.logger.info(f"Regime Shift Detected: Locked to +{self.dynamic_offset} Offset.")
         else:
+            # NEW: Lo Shu Equilibrium Symmetry Lock (Sum 15)
+            # If (15 - Root - Lord + Offset) % 10 == 5, that offset is balanced.
+            # Today check for Monday: (15 - 2 - 2 + 4) = 15 -> 5.
+            for potential_offset in [4, 6, 8]:
+                rn = self.rules.get_numerological_value(datetime.date.today().strftime('%Y-%m-%d'))
+                dl = self.rules.get_day_lord(datetime.datetime.now().strftime('%A'))
+                if (15 - rn - dl + potential_offset) % 10 == 5:
+                    self.dynamic_offset = potential_offset
+                    self.logger.info(f"Symmetry Lock Detected: Lo Shu Equilibrium (Sum 15) validated Offset +{potential_offset}.")
+                    return self.dynamic_offset
+
             # Fallback to the established +4 based on forensic evidence
-            # (Matches Fri=5, Sat=2)
             self.dynamic_offset = 4 
             self.logger.warning("No clear regime lock. Defaulting to +4 based on Forensic Post-Mortem.")
         

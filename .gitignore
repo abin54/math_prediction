@@ -1,44 +1,45 @@
+# Data and Models
+data/*.csv
+data/*.xlsx
+data/processed/
+models/*.json
+models/*.pkl
+models/*.pth
+models/*.joblib
+models/*.npy
+models/forecasts/
+models/timesfm/
+
+# Logs
+logs/*.log
+*.log
+
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
 .Python
 env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Jupyter Notebook
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.toast
 .ipynb_checkpoints
 
-# Environment
+# Environments
 .env
 .venv
+env/
 venv/
 ENV/
 
-# Data (Sensitive & Large)
-*.xlsx
-*.csv
-# predictions_history.txt  # We'll include this for historical proof
+# Temporary
+tmp/
+scratch/
+.gemini/
 
-# OS
+# System
 .DS_Store
 Thumbs.db
-
-# Gemini / AG
-.gemini/
-.antigravity/

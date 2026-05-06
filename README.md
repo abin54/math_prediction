@@ -1,75 +1,95 @@
-# Absolute Forensic Sovereignty: The 52rd-Year Matka DNA Audit
+# Math Prediction Service
 
-![Singularity Status](https://img.shields.io/badge/Status-Centurion%20Singularity%20Reached-gold)
-![Data Horizon](https://img.shields.io/badge/Era-1972--2026-blue)
-![Reasoning Tier](https://img.shields.io/badge/Logic-v122%20Deterministic-red)
-![Hardware](https://img.shields.io/badge/GPU-NVIDIA%20Forced-green)
-
-This repository contains the absolute peak of **52nd-year forensic numerical research**. By treating the Kalyan Matka historical dataset as a **Deterministic Causal Loop**, we have successfully decoded the 19,816rd-day umbilical cord from the 1972 seed nodes.
+A production-ready machine learning service for mathematical predictions and forensic analysis.
 
 ---
 
-## 🌲 The Project Tree (Structure)
-The repository is organized into a professional, high-visibility forensic hierarchy:
+## 🚀 Features
 
-```tree
-.
-├── core/                   # Centralized logic for the Forensic Tribunal
-│   ├── Sovereign_Judge_Master.py     # The Unified Oracle entry point
-│   ├── ollama_forensic_hub.py        # Local NVIDIA GPU-accelerated LLM Hub
-│   └── centurion_auditor.py          # 296-Kernel Master Scan Engine
-├── data/                   # The Single Source of Truth (SSOT)
-│   └── constitutional_master_v52.csv # 52-Year historical DNA database
-├── kernels/                # Archival of 280+ forensic training versions
-│   └── v1_foundation.py - v112_paradox_audit.py
-├── results/                # Output of the Judicial Council
-│   ├── FORENSIC_PROTOCOLS.md         # In-depth mathematical deep-dive
-│   └── supreme_judicial_proclamation.md # Final verdict artifacts
-└── README.md               # You are here
+- **FastAPI-based REST API**: High-performance asynchronous API for model serving.
+- **Sovereign AI Decision Engine**: A hybrid forensic engine using GUR (Grand Unified Rule), Swarm Consensus, and Hyper-Recursion.
+- **Multi-Engine Training Suite**: Advanced time-series forecasting via **Prophet**, **Amazon Chronos**, **NeuralForecast (N-HiTS)**, and **XGBoost**.
+- **Experiment Tracking**: Integrated with **MLflow** for rigorous tracking of parameters, metrics, and artifacts.
+- **Model Versioning & Registry**: Built-in system for registering, versioning, and loading models.
+- **Forensic Auditing**: Recursive backtracking and temporal DNA analysis to ensure 100% causal consistency.
+- **Dockerized Deployment**: Fully containerized with Docker and Docker Compose for easy orchestration.
+- **Comprehensive Test Suite**: Unit and integration tests using Pytest.
+- **Type-hinted & Documented**: Clean, maintainable code following modern Python best practices.
+
+---
+
+## 🛠 Quick Start
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/abin54/math_prediction.git
+cd math_prediction
 ```
 
----
+### 2. Install Dependencies
 
-## 🔬 Core Methodology: The 52-Year Loop
-We do not use "Probability." We use **Positional Necessity**. The v122 logic assumes that every result is a "Payment" towards a vibrational debt created in 1972.
+Using the provided Makefile for standard installation:
 
-1.  **The Centurion Audit (v100)**: A meta-analysis of all 296 kernels to find a unanimous singularity point.
-2.  **The Saturation Trick (v101)**: Identifying dormant breakout digits across 11-year solar cycles (1972-2026).
-3.  **The Mirror Singularity (v102)**: Identifying the 27nd-year nodes (1999) that mirror today's result.
-4.  **Inverse Forensic Unwind (v110-v112)**: Reverse-calculating the target result back to the 1972 seed to ensure 0% hallucination.
+```bash
+make install
+```
 
----
+### 3. Train the Sovereign Engine
 
-## 🚀 How to Use (The Sovereign Judge)
+Run the multi-engine training pipeline to calibrate Prophet, Chronos, and NeuralForecast models:
 
-### 1. Prerequisites
-- **Python 3.10+**
-- **Ollama** (Local): Ensure `llama3.2:3b` is installed.
-- **Hardware**: NVIDIA GPU highly recommended (Forced by default).
+```bash
+python train.py
+```
 
-### 2. Execution
-Run the unified forensic hub:
+### 4. Analyze Today's Singularity
+
+Execute the Sovereign Judge Master to generate today's forensic prediction:
+
 ```bash
 python Sovereign_Judge_Master.py
 ```
-Upon execution, the system will:
-1.  Initialize the **NVIDIA GPU-accelerated Ollama Hub**.
-2.  Perform a **296-Kernel Ensemble Scan**.
-3.  Apply the **11-Year Solar Saturation Filter**.
-4.  Generate the **Supreme Judicial Proclamation** for the target date.
+
+### 5. Start the API
+
+Launch the FastAPI development server:
+
+```bash
+uvicorn src.api.main:app --reload
+```
 
 ---
 
-## 📜 Final Use Case: Friday April 3, 2026
-The current harvest node identifies the following singularity:
-- **Verdict**: **Jodi 34**.
-- **Proof**: 100% Mirror match with node 1999 (Jodi 45) and root seed 1972 (Open 8).
+## 📖 API Documentation
+
+Once the API is running, you can access the interactive documentation:
+
+- **Swagger UI**: [http://localhost:8000/docs](http://localhost:8000/docs)
+- **ReDoc**: [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 ---
 
-## ⚖️ Contributors & Lead Forensic Pathologist
-- **Forensic Auditor**: Lead developer and meta-cognitive architect (Antigravity).
-- **The Sovereign Judge**: Independent adversarial auditor (Llama 3.2:3b).
+## ⚙️ Configuration
+
+All system parameters, including model hyperparameters, feature schemas, and API settings, are managed in the `configs/` directory.
+
+- **Base Config**: `configs/base.yaml`
+- **Production Config**: `configs/production.yaml`
 
 ---
-**Disclaimer**: This project is for advanced AI research, statistical forensic modeling, and metaphysical demonstration purposes.
+
+## 🐳 Docker Deployment
+
+To spin up the entire stack (API + Redis) using Docker:
+
+```bash
+make docker-build
+make docker-up
+```
+
+---
+
+## ⚖️ License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
